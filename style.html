@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Gier Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Verdana', Geneva, Tahoma, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #333;
+    }
+    
+    a {
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    
+    hr {
+      border: 0;
+      height: 1px;
+      margin: 30px auto;
+      width: 80%;
+    }
+    
+    /* Navigation - Always at the very top */
+    nav {
+      background-color: #1a3e72;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    nav a {
+      margin: 0 15px;
+      font-weight: bold;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 4px;
+      font-size: 1em;
+    }
+    
+    nav a:hover {
+      background-color: #3a6fc8;
+    }
+    
+    /* Header Styles - Blue Scheme */
+    header {
+      text-align: center;
+      padding: 20px 0 30px;
+      background: linear-gradient(135deg, #e6f2ff 0%, #cce0ff 100%);
+    }
+    
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    header img {
+      border-radius: 50%;
+      border: 5px solid white;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      width: 35%;
+    }
+    
+    header h1 {
+      color: #1a3e72;
+      font-size: 2.2em;
+      margin: 10px 0 5px;
+    }
+    
+    header h1 span {
+      color: #3a6fc8;
+    }
+    
+    header p {
+      color: #4d6b9a;
+      font-size: 1em;
+      margin: 5px 0;
+    }
+    
+    /* Section Styles */
+    section {
+      padding: 40px 20px;
+      margin: 0 auto;
+    }
+    
+    h1, h2, h3, h4 {
+      color: #2c3e50;
+      margin: 0 0 15px;
+    }
+    
+    h1 {
+      font-size: 2em;
+    }
+    
+    h2 {
+      font-size: 1.5em;
+    }
+    
+    h3 {
+      font-size: 1.2em;
+    }
+    
+    h4 {
+      font-size: 1em;
+    }
+    
+    h1 span {
+      color: #4a6fa5;
+    }
+    
+   /* About Section - Green Scheme */
+   #about {
+      text-align: center;
+      background: linear-gradient(135deg, #e6f7e6 0%, #ccf2cc 100%);
+      padding: 40px 20px;
+    }
+    
+    #about hr {
+      background: linear-gradient(to right, transparent, #2e7d32, transparent);
+    }
+    
+    #about h1 span {
+      color: #2e7d32;
+    }
+    
+    #about img {
+      border-radius: 5px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      border: 3px solid #2e7d32;
+    }
+
+    .happy img {
+    width: 25%;
+    }
+    
+    #about p {
+      margin: 10px auto;
+      line-height: 1.8;
+      color: #1b5e20;
+      font-size: large;
+    }
+    
+    #about strong {
+      color: #2e7d32;
+    }
+    
+    .social-icons {
+  margin: 10px 0;
+}
+
+.social-icons a {
+  margin: 0 5px;
+  display: inline-block;
+  transition: transform 0.3s;
+}
+
+.social-icons img {
+  width: 40px;
+  height: 40px;
+  opacity: 0.9;
+}
+
+.social-icons a:hover {
+  transform: scale(1.3);
+
+}
+    /* Education Section - Purple Scheme */
+    #education {
+      text-align: center;
+      background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+    }
+    
+    #education hr {
+      background: linear-gradient(to right, transparent, #6a1b9a, transparent);
+    }
+    
+    #education h1 {
+      color: #4a148c;
+    }
+    
+    #education em {
+      color: #6a1b9a;
+      font-size: larger;
+    }
+    
+    .education-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 30px;
+    }
+    
+    .education-card {
+      width: 300px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+      border: 2px solid #9c27b0;
+    }
+    
+    .education-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .education-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    
+    /* Skills Section - Purple Continuation */
+    .skills {
+      text-align: center;
+      background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+    }
+    
+    .skills ul {
+      list-style-type: none;
+      padding: 0;
+      max-width: 260px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: larger;
+    }
+    
+    .skills li {
+      margin: 15px 0;
+      padding-left: 25px;
+      position: relative;
+      color: #4a148c;
+      font-size: 1.1em;
+    }
+    
+    .skills li:before {
+      content: "•";
+      color: #9c27b0;
+      font-size: 1.5em;
+      position: absolute;
+      left: 0;
+      top: -3px;
+    }
+    
+    /* Hobbies Section - Purple Continuation */
+    .hobbies {
+      text-align: center;
+      background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+    }
+    
+    .hobbies h1 span {
+      color: #6a1b9a;
+    }
+    
+    .hobbies-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 30px;
+    }
+    
+    .hobby-card {
+      width: 200px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+      border: 2px solid #9c27b0;
+    }
+    
+    .hobby-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .hobby-card img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    
+    /* Contact Section - Red Scheme */
+    #contact {
+      text-align: center;
+      background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+    }
+    
+    #contact hr {
+      background: linear-gradient(to right, transparent, #c62828, transparent);
+    }
+    
+    #contact h1 {
+      color: #b71c1c;
+    }
+    
+    #contact p {
+      color: #c62828;
+    }
+    
+    .contact-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 30px;
+    }
+    
+    .contact-card {
+      width: 250px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      border: 2px solid #e53935;
+    }
+    
+    .contact-card img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid #e53935;
+      padding: 5px;
+      margin-bottom: 15px;
+    }
+    
+    /* Form Styles */
+    form {
+      max-width: 500px;
+      margin: 30px auto 0;
+    }
+    
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-family: 'Verdana', Geneva, Tahoma, sans-serif;
+      font-size: 1em;
+    }
+    
+    textarea {
+      min-height: 120px;
+    }
+    
+    button {
+      background-color: #e53935;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background-color 0.3s;
+      margin-top: 10px;
+    }
+    
+    button:hover {
+      background-color: #b71c1c;
+    }
+    
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #1a3e72;
+      color: white;
+    }
+    
+    footer p {
+      margin: 0;
+      font-size: 0.9em;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.8em;
+      }
+      
+      nav a {
+        margin: 0 5px;
+        padding: 5px 8px;
+        font-size: 0.9em;
+      }
+      
+      .education-card, .contact-card {
+        width: 100%;
+        max-width: 350px;
+      }
+      
+      .hobby-card {
+        width: 150px;
+      }
+      
+      form {
+        padding: 0 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Blue Navigation Bar at the very top -->
+  <nav>
+    <div class="nav-container">
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contacts</a>
+      <a href="./index.html" download="Gier_Portfolio.html">Download</a>
+    </div>
+  </nav>
+
+  <header>
+    <div class="header-content">
+      <img src="https://scontent.fcgy3-2.fna.fbcdn.net/v/t39.30808-6/481083848_1372794810743197_7252190365654671303_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeFg8pWKT4_9H9M5OOXGkYLNzZcJBB8rqB_NlwkEHyuoHzKPz5k2eFdX1jWTBhDL6n9ISbvvYN9kBpC67c_el0GF&_nc_ohc=0tftOyxc-FMQ7kNvwEYJv4S&_nc_oc=Admfs50sOrYMqJ8hF4NQFd64kyQF5h-Pczi-eTyPHjdr7XAj7YDGfHKLLA9GcIg9fis&_nc_zt=23&_nc_ht=scontent.fcgy3-2.fna&_nc_gid=U1kI6D0lOl8NcUI993Y9BQ&oh=00_AfEj3qE1iKI1GvDBAj-c_8ieLCRx2OpwpfMSJfqOFDgo1w&oe=68119D0A" alt="Profile Photo" />
+      <h2>Jezzel Faith Quiroga Gier</h2>
+      <h4>2022301492</h4>
+      <h1>Data Science <span>Student</span></h1>
+      <p>This is my Personal Overview</p>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="header-content">
+      <hr />
+      <h1>About <span>Me</span></h1>
+      <div class="happy">
+        <img src="https://i.pinimg.com/736x/ce/18/32/ce18326f474404bd6ea32a26653a27b2.jpg" alt="About Me" />
+      </div>
+      <br /><br />
+      <p>
+        Hi, I'm <strong>Jezzel</strong>. I'm a curious learner who enjoys exploring new ideas and finding better ways to understand the world around me.
+      </p>
+      <p>
+        Whether it's through tech, creativity, or everyday challenges, I love figuring things out and growing through the process. I believe in staying open, asking questions, and always learning something new—one step (and one cup of coffee ☕) at a time.
+      </p>
+      <p>
+        As an <strong>INFP</strong> personality, I'm thoughtful, idealistic, and driven by values. I care deeply about meaning and authenticity, and I find joy in connecting ideas, people, and purpose.
+      </p>
+      <div class="social-icons">
+        <a href="https://github.com/Jzelfthr"><img src="https://tse3.mm.bing.net/th?id=OIP.eoZPB2gfGH-1ckaL_JSZdwHaHg&pid=Api&P=0&h=180" alt="GitHub" /></a>
+        <a href="https://www.facebook.com/jezzelfaith.gier.1/"><img src="https://static.vecteezy.com/system/resources/previews/013/901/773/original/facebook-icon-ios-facebook-social-media-logo-on-white-background-free-free-vector.jpg" alt="Facebook" /></a>
+        <a href="https://www.instagram.com/jzelfthr/"><img src="https://1000logos.net/wp-content/uploads/2017/02/New-Instagram-logo.jpg" alt="Instagram" /></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rest of your HTML remains exactly the same -->
+  <section id="education">
+    <div class="header-content">
+      <hr />
+      <h1>Education</h1>
+      <p><em>Padayon lang bisan kapoy!</em></p>
+      
+      <div class="education-container">
+        <div class="education-card">
+          <img src="https://scontent.fcgy3-2.fna.fbcdn.net/v/t39.30808-6/439991921_870329881776926_2482711152704175281_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeFPMhcE7f3x3Xe3f1qCgGmNrkifGjG1UsyuSJ8aMbVSzNnds2fn9ug2SYiM9J8UjTym0Q_D7zHXW8oJut9hT-Vd&_nc_ohc=6wfRmF2FWRgQ7kNvwFOYa3L&_nc_oc=AdmoiHybEusVLScnyYZ8EOoFSlKNRouE3Fg4ajVlACI3GkZduh9cwp6VyMtrMMncnYk&_nc_zt=23&_nc_ht=scontent.fcgy3-2.fna&_nc_gid=3bJmJaggRhUIdL7PXKdypg&oh=00_AfFnf3nvYOTMBXAsVv79JlR1aGxkh92Q1VFYJkAcCklIAA&oe=68118F76" alt="Elementary School" />
+          <h3>Plantation Elementary School</h3>
+          <p>Camp Phillips, Manolo Fortich, Bukidnon</p>
+        </div>
+        
+        <div class="education-card">
+          <img src="https://scontent.fcgy3-2.fna.fbcdn.net/v/t39.30808-6/316425918_101079066174764_2689376158079760478_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=2285d6&_nc_eui2=AeEvND53tOqsOIjW4FQzWLlLwZPYZhZb0g7Bk9hmFlvSDukAoeG5NnTox3ziAzfqZU_KiwJElaEemSo9g3EXYwSy&_nc_ohc=H-h40rDfC-YQ7kNvwHHxwnI&_nc_oc=Adls8klO2LpkQ3Iz9EA1Cj4JtGt9Bv2v2KgcVs9SWVygwNr-nMqZJz6Gef1asoDCgyg&_nc_zt=23&_nc_ht=scontent.fcgy3-2.fna&_nc_gid=zxs5CRLk6i1oSYGPLILJ2Q&oh=00_AfHoA34gY3jO5VcNQ7nl8C5nmIih6vifJq26PVm5TEKFBA&oe=681174D7" alt="High School" />
+          <h3>Libona National High School</h3>
+          <p>Crossing, Libona, Bukidnon</p>
+        </div>
+        
+        <div class="education-card">
+          <img src="https://scontent.fcgy3-2.fna.fbcdn.net/v/t39.30808-6/324429893_692617042404789_8825582010059206302_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEenohB-1fSJPSqMLCcw_rSiSnhuT21QT-JKeG5PbVBPznSpJmX4WpxU_QBJoZahvleIDVXmjA1jLD64kYBBB6w&_nc_ohc=9B87cqCn0z8Q7kNvwGRWJiW&_nc_oc=AdnVVd7543s29qmTUC2Vy3u4EpUIUT0nbWHeHENGfDz9XdYg6SY-giLd_6g_pDqxAiQ&_nc_zt=23&_nc_ht=scontent.fcgy3-2.fna&_nc_gid=da6XPVEu3vYXKnzms_yl1A&oh=00_AfGLuw9skQ96jT3FY0DY6taek2ShtNw-4WksznO914IplA&oe=68119874" alt="University" />
+          <h3>University of Science and Technology</h3>
+          <h3>of Southern Philippines</h3>
+          <p>Lapasan, Cagayan de Oro City</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="skills">
+    <div class="header-content">
+      <hr />
+      <h1>Unlock My Potential</h1>
+      <ul>
+        <li>Effective Communicator</li>
+        <li>Creative Designer</li>
+        <li>Exceptional Customer Service</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="hobbies">
+    <div class="header-content">
+      <h1>My <span>Hobbies</span></h1>
+      
+      <div class="hobbies-container">
+        <div class="hobby-card">
+          <img src="https://images.pexels.com/photos/5152595/pexels-photo-5152595.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Dancing" />
+          <h3>Dancing</h3>
+        </div>
+        
+        <div class="hobby-card">
+          <img src="https://images.pexels.com/photos/164829/pexels-photo-164829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Singing" />
+          <h3>Singing</h3>
+        </div>
+        
+        <div class="hobby-card">
+          <img src="https://images.pexels.com/photos/1031588/pexels-photo-1031588.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Reading" />
+          <h3>Reading</h3>
+        </div>
+        
+        <div class="hobby-card">
+          <img src="https://i.pinimg.com/736x/cb/db/9e/cbdb9ef4ffdcbe399918e3a999db74f0.jpg" alt="Kpop" />
+          <h3>Listening to Kpop</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+    
+  <section id="contact">
+    <div class="header-content">
+      <hr />
+      <h1>Contacts</h1>
+      <p>If you need me, you know where to find me 😉</p>
+      
+      <div class="contact-container">
+        <div class="contact-card">
+          <img src="https://i.pinimg.com/736x/6d/f5/26/6df52621efe3fd95bde5ffca2e29252d.jpg" alt="Phone" />
+          <h3>Contact No.</h3>
+          <p>09467339788</p>
+        </div>
+        
+        <div class="contact-card">
+          <img src="https://i.pinimg.com/736x/87/f2/83/87f283f6f4421980f74e9dd572216854.jpg" alt="Email" />
+          <h3>Email</h3>
+          <p>gier.jezzelfaith@gmail.com</p>
+        </div>
+        
+        <div class="contact-card">
+          <img src="https://i.pinimg.com/736x/2d/b3/af/2db3af0daf8db29055a8aa97a8a219d8.jpg" alt="Location" />
+          <h3>Visit</h3>
+          <p>Purok Aries, Camp Phillips,<br>Agusan Canyon,<br>Manolo Fortich, Bukidnon</p>
+        </div>
+      </div>
+      
+      <form>
+        <input type="text" placeholder="Your Name *" />
+        <input type="email" placeholder="Your Email *" />
+        <input type="text" placeholder="Your Subject..." />
+        <textarea placeholder="Your Message..."></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="header-content">
+      <hr />
+      <p>&copy; 2025 Gier</p>
+    </div>
+  </footer>
+</body>
+</html>
